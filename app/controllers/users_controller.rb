@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
-  def show
+ 
+
+  def show  
   end
 
   # GET /signup

@@ -21,4 +21,56 @@
   <%= @user.team_names.join(", ") %>
 </p>
 
+
+<h2>User's Individual Feedback</h2>
+
+<% if @user.feedbacks.size == 0 %>
+    <p>User has no feedbacks yet!</p>
+<% else %>
+      
+        
+         
+          <table>
+            <thead>
+              <tr>
+                
+                <th>Rating (Out of 10)</th>
+                <th>Priority</th>
+                <th>Comments</th>
+                <th>Time Submitted</th>
+                <th colspan="6"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.feedbacks.each do |fb| %>
+                <tr>
+                  
+                  <td><%= fb.rating %></td>
+                  <%if fb.priority == 2%>
+                    <td><%='Low'%></td>
+                  <%elsif fb.priority == 1%>
+                    <td><%='Medium'%></td>
+                  <%else%>
+                    <td><%='Urgent'%></td>
+                  <%end%>
+                  <%if fb.comments.nil? || fb.comments.size == 0 %>
+                    <td> No Comments Submitted!</td>
+                  <%else%>
+                  <td><%= fb.comments %></td>
+                  <%end%>
+                  <td><%= fb.timestamp.strftime('%Y-%m-%d %H:%M EST') %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="small-line"></div>
+        <br/>
+      
+<% end %>
+
+
+
+
+
 <%= link_to 'Back', :back %>

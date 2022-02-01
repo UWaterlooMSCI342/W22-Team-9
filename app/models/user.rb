@@ -57,6 +57,10 @@ class User < ApplicationRecord
     return teams
   end
     
+
+
+
+  
   def one_submission_teams()
     teams = []
     d = now
