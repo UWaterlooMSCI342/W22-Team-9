@@ -19,13 +19,13 @@ class FeebackTimeDisplayTest < ApplicationSystemTestCase
     travel_to datetime
   end 
     
-  #def test_time_displays
+  def test_time_displays
       
 
 
-    #visit root_url
-    #login 'test@gmail.com', 'asdasd'
-    #assert_current_path root_url
+    visit root_url
+    login 'test@gmail.com', 'asdasd'
+    assert_current_path root_url
     
     click_on "Submit for"
     assert_text "Current System Time: 2021/03/21 23:30" #Acceptance criteria #1
